@@ -1,6 +1,6 @@
 # gdms
 ## graduation design manage system
-毕业设计管理系统
+##毕业设计管理系统
 
 ###创建虚拟环境
 * virtualenv venv --python=python2.7
