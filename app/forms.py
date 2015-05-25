@@ -1,3 +1,5 @@
+# encoding=utf-8
+
 import re
 from flask.ext.wtf import Form
 from wtforms import StringField, RadioField, PasswordField, TextAreaField, BooleanField, DateField, ValidationError
@@ -25,21 +27,21 @@ class Fields(object):
         else:
             return u'该输入的长度必须大于%d,小于%d' % (min, max)
 
-    workID = StringField(label=u'请输入您的工号', validators=[DataRequired(message=notnull),
-                                                       Length(min=5, max=10, message=get_len_str(4, 11)),
-                                                       ])
+    username = StringField(label=u'请输入您的用户名',
+                           validators=[DataRequired(message=notnull),
+                                       Length(min=0, max=15, message=get_len_str(0, 16)),
+                                       ])
 
-    password = PasswordField(label=u'请输入密码',
+    password = PasswordField(label=u'请输入密码', description=u'请输入密码',
                              validators=[DataRequired(message=notnull),
-                                         Length(min=5, max=60, message=get_len_str(min=4, max=61)),
-                                         EqualTo(u'confirm_password', message=u'两次输入的密码不一致'), ],
-                             description=u'请输入密码'
-                             )
+                                         Length(min=0, max=60, message=get_len_str(min=0, max=61)),
+                                         ])
     confirm_password = PasswordField(label=u'请确认密码',
                                      description=u'请确认密码',
 
                                      validators=[DataRequired(message=notnull),
-                                                 Length(min=5, max=60, message=get_len_str(min=4, max=61)), ]
+                                                 Length(min=5, max=60, message=get_len_str(min=4, max=61)),
+                                                 EqualTo(u'confirm_password', message=u'两次输入的密码不一致'), ]
                                      )
     student_amount = StringField(label=u'请输入您指导的学生数量',
                                  validators=[Regexp(re.compile(r"\d"))])
@@ -61,11 +63,6 @@ class Fields(object):
                                     default=0,
                                     widget=BSListWidget())
 
-    studentID = StringField(label=u'请输入您的学号',
-                            validators=[DataRequired(message=notnull),
-                                        Length(min=0, max=15, message=get_len_str(0, 16)),
-                                        ])
-
     student_name = StringField(label=u'请输入您的姓名',
                                validators=[DataRequired(message=notnull),
                                            Length(min=0, max=15, message=get_len_str(0, 16)),
@@ -76,6 +73,12 @@ class Fields(object):
                      choices=[(0, u'男'), (1, u'女')],
                      default=0,
                      widget=BSListWidget())
+
+    user_type = RadioField(label=u'您是',
+                           coerce=str,
+                           choices=[(u'student', u'学生'), (u'teacher', u'老师'), (u'admin', u'管理员')],
+                           default=u'student',
+                           widget=BSListWidget())
 
     mark = StringField(label=u'您的分数',
                        default=0,
@@ -93,72 +96,21 @@ class Fields(object):
                         ])
     description = TextAreaField(label=u'请填写毕业设计的描述')
 
-    task_start_date = DateField(label='开始时间',default=)
+    task_start_date = DateField(label=u'开始时间')
+    task_end_date = DateField(label=u'结束时间')
+
+    comment_start_date = DateField(label=u'开始时间')
+    comment_end_date = DateField(label=u'结束时间')
 
 
-
-
-    email = StringField(label=u'请输入邮箱',
-                        validators=[DataRequired(message=notnull), Email(message=u'邮箱格式不正确')],
-                        description=u'请输入邮箱'
-                        )
-
-    sex = RadioField(label=u'请选择您的性别',
-                     coerce=int,
-                     choices=[(0, u'男'), (1, u'女'), (2, u'不确定')],
-                     default=2,
-                     description=u'请选择您的性别',
-                     widget=BSListWidget()
-                     )
-
-    nickname = StringField(label=u"请输入您的昵称",
-                           validators=[Length(min=3, max=32, message=get_len_str(min=2, max=33))],
-                           description=u'请输入您的昵称',
-                           default=u'我没有昵称'
-                           )
-
-    about_me = TextAreaField(label=u'请描述一下自己吧',
-                             validators=[Length(min=15, max=128, message=get_len_str(min=14, max=129))])
-
-    remember_me = BooleanField(label=u'记住我', default=0)
-
-    birthday = DateField(label=u'请选择您的生日', default=date.today())
-    born_place = StringField(label=u'所在地', default=u'地球上')
-
-    signature = StringField(label=u'请填写您的签名',
-                            validators=[Length(max=64, message=get_len_str(min=None, max=64))],
-                            )
-
-    @staticmethod
-    def validate_email(form, field):
-        user = User.get_user(field.data)
-        if user:
-            raise ValidationError(message=u'该email已被注册')
-
-
-class StuRegForm(Form):
-    studentID = Fields.username
-    email = Fields.email
-    sex = Fields.sex
+class LoginForm(Form):
+    username = Fields.username
     password = Fields.password
-    confirm_pdbassword = Fields.confirm_password
 
-    def validate_username(self, field):
-        name = field.data
-        if name.lower() in RESERVED_WORLDS:
-            # self.username.errors.append(u'该用户名为系统保留字')
-            raise ValidationError(message=u'该用户名为系统保留字')
-        user = User.get_user(name)
-        if user:
-            raise ValidationError(message=u'该用户名已被注册')
+    user_type = Fields.user_type
 
-    def validate_email(self, field):
-        Fields.validate_email(self, field)
-
-    def save(self):
-        try:
-            user = User()
-            self.populate_obj(user)
-            return user.save()
-        except:
-            return None
+    def validate_user_type(self, field):
+        print field.data
+        # user = User.get_user(field.data)
+        # if user:
+        # raise ValidationError(message=u'该email已被注册')
