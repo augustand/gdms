@@ -10,6 +10,18 @@
     <script src="{{ url_for('static',filename='js/transition.js') }}"></script>
     <script src="{{ url_for('static',filename='js/tooltip.js') }}"></script>
     <script src="{{ url_for('static',filename='js/popover.js') }}"></script>
+
+    <script>
+        function do_active(self){
+            for( x in ['index1','index2','index3']){
+                alert(document.getElementById(x).className);
+
+            }
+            self.className = 'active';
+        }
+
+    </script>
+
 {% endblock %}
 
 
@@ -33,9 +45,9 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">首页</a></li>
-                    <li><a href="#about">关于</a></li>
-                    <li><a href="#contact">联系</a></li>
+                    <li id="index1" class="active" onclick="do_active(this)"><a href="#">首页</a></li>
+                    <li id="index2" onclick="do_active(this)"><a href="#about">关于</a></li>
+                    <li id="index3" onclick="do_active(this)"><a href="#contact">联系</a></li>
 
 
                     <li class="dropdown">
