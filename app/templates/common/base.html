@@ -1,0 +1,89 @@
+<html {% block html_attribs %}{% endblock html_attribs %}>
+<head>
+
+    {#metas  #}
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    {% block metas %}{% endblock metas %}
+    {#metas #}
+
+    {#标题#}
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>毕设系统</title>
+    {% endif %}
+    {#标题#}
+
+
+    {#自定义mystyle#}
+
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-theme.min.css') }}"/>
+    {% block mystyle %}{% endblock mystyle %}
+    {#自定义mystyle#}
+
+    {#自定义myjavascript#}
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    {% block myjs %}{% endblock myjs %}
+    {#自定义myjavascript#}
+
+
+</head>
+
+<body {% block body_attribs %}{% endblock body_attribs %}>
+<dev id="_header"></dev>
+{#导航栏 #}
+{% block navbar %}{% endblock navbar %}
+{#导航栏 #}
+
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                {% elif category == 'warning' %}
+                    <div class="alert alert-warning" role="alert">{{ message }}</div>
+                {% elif category == 'success' %}
+                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {#内容#}
+    {% block content %}{% endblock content %}
+    {#内容#}
+</div>
+
+
+{% for x in range(3) %}
+    <br>
+{% endfor %}
+
+
+{#尾部#}
+{% block footer %}
+    <div class="panel-footer">
+        <p>
+            gdms template built for
+            <a href="http://getbootstrap.com">Bootstrap</a> by
+            <a href="https://twitter.com/mdo">@mdo</a>.
+        </p>
+
+        <p>
+            <a href="#_header ">Back to top</a>
+        </p>
+    </div>
+
+{% endblock footer %}
+{#尾部#}
+</body>
+</html>

@@ -10,10 +10,10 @@ from wtforms.widgets import ListWidget, HTMLString
 class BSListWidget(ListWidget):
     def __call__(self, field, **kwargs):
         kwargs.setdefault('id', field.id)
-        html = []
+        html = ""
         for subfield in field:
-            html.append(u'<label class="radio inline"> %s%s </label>' % (subfield(), subfield.label.text))
-        return HTMLString(u''.join(html))
+            html += u'<label class="radio-inline"> %s%s </label>' % (subfield(), subfield.label.text)
+        return HTMLString(html)
 
 
 class Fields(object):
@@ -108,6 +108,8 @@ class LoginForm(Form):
     password = Fields.password
 
     user_type = Fields.user_type
+
+    remember_me = BooleanField(label=u'记住我', default=True)
 
     def validate_user_type(self, field):
         print field.data

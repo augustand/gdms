@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+
+{% from "common/../macros/_field.html" import render_field %}
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <h1>用户登录</h1>
+
+            <form action="" method="POST" class="form-horizontal">
+                    {{ form.hidden_tag() }}
+                    {% for field in form if field.name != 'csrf_token' and field.name != 'csrf' %}
+                    {{ render_field(field) }}
+                    {% endfor %}
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" class="btn btn-primary btn-large" value="登录"/>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

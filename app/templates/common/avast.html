@@ -1,0 +1,21 @@
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if g.user %}
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                            <span><img src="{{ g.user.avatar() }}"></span>
+                            <span>{{ g.user.username }}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/user/info">用户</a></li>
+                            <li><a href="/user/setting">设置</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/user/logout">退出</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="/user/login">登录</a></li>
+                    <li><a href="/user/register">注册</a></li>
+                {% endif %}
+            </ul>
