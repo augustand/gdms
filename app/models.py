@@ -1,5 +1,7 @@
 # encoding=utf-8
 from app import db
+from flask import g
+from sqlalchemy.orm import backref
 
 
 class Teacher(db.Model):
@@ -8,8 +10,8 @@ class Teacher(db.Model):
     '''老师数据库字段设计'''
     id = db.Column(db.BigInteger, primary_key=True)
 
-    workID = db.Column(
-        db.String(64), unique=True, index=True, nullable=False)  # 老师的工号
+    username = db.Column(
+        db.String(64), unique=True, index=True, nullable=False)  # 老师的工号 workID
     password = db.Column(db.String(128), nullable=False)
 
     student_amount = db.Column(db.SMALLINT, default=0)  # 老师指导的学生数量
@@ -21,8 +23,7 @@ class Teacher(db.Model):
     attachment = db.Column(db.String(100), default='附件路径')
     is_comment_teacher = db.Column(db.Boolean, default=True)
 
-    comment_teacher = db.relationship(
-        "Teacher", backref="commented_teacher", uselist=False)
+    comment_teacher = db.relationship("Teacher", backref=backref("commented_teacher", remote_side=[id]), uselist=False)
     common_teacher_id = db.Column(db.BigInteger, db.ForeignKey('teachers.id'))
 
 
@@ -30,8 +31,8 @@ class Student(db.Model):
     __tablename__ = 'students'
     '''学生数据库字段设计'''
     id = db.Column(db.BigInteger, primary_key=True)
-    studentID = db.Column(
-        db.String(64), unique=True, index=True, nullable=False)
+    username = db.Column(
+        db.String(64), unique=True, index=True, nullable=False)  # studentID
     password = db.Column(db.String(128), nullable=False)
 
     student_name = db.Column(db.String(15))
@@ -42,6 +43,17 @@ class Student(db.Model):
     mark = db.Column(db.SMALLINT)  # 评阅老师对毕设打的分数
 
     comment = db.Column(db.Text)  # 老师对该毕设的评论
+
+    @staticmethod
+    def get_user(username):
+        try:
+            user = Student.query.filter(Student.username == username).first()
+            if not user:
+                user = Student.query.filter(Student.id == username).first()
+            g.user = user
+        except Exception,e:
+            print e
+        return user
 
 
 class Task(db.Model):
@@ -63,8 +75,8 @@ class Admin(db.Model):
     __tablename__ = 'admin'
     '''系统管理员'''
     id = db.Column(db.BigInteger, primary_key=True)
-    workID = db.Column(
-        db.String(64), unique=True, index=True, nullable=False)
+    username = db.Column(
+        db.String(64), unique=True, index=True, nullable=False)  # workID
     password = db.Column(db.String(128), nullable=False)
 
     task_start_date = db.Column(db.Date)

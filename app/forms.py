@@ -1,4 +1,6 @@
 # encoding=utf-8
+from app.models import Student
+from flask import g
 
 import re
 from flask.ext.wtf import Form
@@ -111,8 +113,20 @@ class LoginForm(Form):
 
     remember_me = BooleanField(label=u'记住我', default=True)
 
-    def validate_user_type(self, field):
-        print field.data
-        # user = User.get_user(field.data)
-        # if user:
-        # raise ValidationError(message=u'该email已被注册')
+    def validate_username(self,field):
+        user = Student.get_user(field.data)
+        if not user:
+            raise ValidationError(message=u'用户名不存在')
+    #
+    # def validate_password(self,field):
+    #     if g.user:
+    #         if field.data != g.user.username:
+    #             field.errors.append(message=u'用户密码不正确')
+    #             return False
+    #
+    # def validate_user_type(self, field):
+    #     print field.data
+    #
+    # def validate_remember_me(self,field):
+    #     if field.data:
+    #         print field.data
