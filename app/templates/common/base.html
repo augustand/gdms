@@ -34,7 +34,7 @@
 
 </head>
 
-<body {% block body_attribs %}{% endblock body_attribs %}>
+<body {% block body_attribs %}{% endblock body_attribs %} style="padding-bottom:70px;">
 <dev id="_header"></dev>
 {#导航栏 #}
 {% block navbar %}{% endblock navbar %}
@@ -69,21 +69,52 @@
 {% endfor %}
 
 
-{#尾部#}
-{% block footer %}
-    <div class="panel-footer">
-        <p>
-            gdms template built for
-            <a href="http://getbootstrap.com">Bootstrap</a> by
-            <a href="https://twitter.com/mdo">@mdo</a>.
+
+
+<footer class="blog-footer" style="bottom:0px;">
+    <!-- 内置块css定义 -->
+    <div class="container">
+        <!-- 一行一排 -->
+        <p>由 <a href="http://twitter.com/mdo" target="_blank">@mdo</a> 和
+            <a href="http://twitter.com/fat" target="_blank">@fat</a>
+            倾心制作开发,由KingHack学习并注解
         </p>
 
-        <p>
-            <a href="#_header ">Back to top</a>
+        <p>开源依照 <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, 文档依照
+            <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
         </p>
+
+        <p>Icons取自<a href="http://glyphicons.com" target="_blank">Glyphicons Free</a> ,授权依照
+            <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
+
+        <!-- 尾部链接 -->
+        <ul class="footer-links">
+            <a href="http://blog.getbootstrap.com">博客</a>
+            <a href="https://github.com/twitter/bootstrap/issues?state=open">问题反馈</a>
+            <!-- 使用内置标准点分割 -->
+            <a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">路线图与更新日志</a>
+        </ul>
+
     </div>
+</footer>
 
-{% endblock footer %}
+
+{#尾部#}
+{#{% block footer %}#}
+{#    <div class="blog-footer" style="bottom:0px;">#}
+{#        <p>#}
+{#            gdms template built for#}
+{#            <a href="http://getbootstrap.com">Bootstrap</a> by#}
+{#            <a href="https://twitter.com/mdo">@mdo</a>.#}
+{#        </p>#}
+{##}
+{#        <p>#}
+{#            <a href="#_header ">Back to top</a>#}
+{#        </p>#}
+{#    </div>#}
+{##}
+{#{% endblock footer %}#}
 {#尾部#}
 </body>
 </html>
