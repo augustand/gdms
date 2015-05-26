@@ -11,4 +11,3 @@
 * pip freeze > requirements && cat requirements
 * pip install -r requirements
 * sudo apt-get install postgresql libpq-dev python-dev
-jjjjjj
