@@ -4,6 +4,99 @@
 {% block mystyle %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/blog.css') }}">
+
+    <style>
+        body {
+            position: relative;
+        }
+
+        ul.nav-pills {
+            top: 20px;
+            position: fixed;
+        }
+
+        div.col-sm-9 div {
+            height: 250px;
+            font-size: 28px;
+        }
+
+        #section1 {
+            color: #fff;
+            background-color: #1E88E5;
+        }
+
+        #section2 {
+            color: #fff;
+            background-color: #673ab7;
+        }
+
+        #section3 {
+            color: #fff;
+            background-color: #ff9800;
+        }
+
+        #section41 {
+            color: #fff;
+            background-color: #00bcd4;
+        }
+
+        #section42 {
+            color: #fff;
+            background-color: #009688;
+        }
+
+        @media screen and (max-width: 810px) {
+            #section1, #section2, #section3, #section41, #section42 {
+                margin-left: 150px;
+            }
+        }
+    </style>
+
+
+    <style type="text/css">
+        /* Custom Styles */
+        ul.nav-tabs {
+            width: 140px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+        }
+
+        ul.nav-tabs li {
+            margin: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        ul.nav-tabs li:first-child {
+            border-top: none;
+        }
+
+        ul.nav-tabs li a {
+            margin: 0;
+            padding: 8px 16px;
+            border-radius: 0;
+        }
+
+        ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+            color: #fff;
+            background: #0088cc;
+            border: 1px solid #0088cc;
+        }
+
+        ul.nav-tabs li:first-child a {
+            border-radius: 4px 4px 0 0;
+        }
+
+        ul.nav-tabs li:last-child a {
+            border-radius: 0 0 4px 4px;
+        }
+
+        ul.nav-tabs.affix {
+            top: 30px; /* Set the top position of pinned element */
+        }
+    </style>
+
 {% endblock %}
 
 {% block myjs %}
@@ -13,6 +106,36 @@
 {% endblock %}
 
 {% block content %}
+
+
+    {#    <div class="col-sm-offset-3">#}
+    {#        <div class="form-group">#}
+    {#            <div class="col-sm-9">#}
+    {#                <label class="radio-inline"> <input checked id="user_type-0" name="user_type" type="radio"#}
+    {#                                                    value="student">学生 </label><label class="radio-inline"> <input#}
+    {#                    id="user_type-1" name="user_type" type="radio" value="teacher">老师 </label><label#}
+    {#                    class="radio-inline"> <input id="user_type-2" name="user_type" type="radio" value="admin">管理员#}
+    {#            </label>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+
+
+
+
+
+
+{#    <div class="form-group">#}
+    {#        <div class="col-sm-9">#}
+    {#            <label>#}
+    {#                <input checked id="remember_me" name="remember_me" type="checkbox" value="y">#}
+    {#                记住我#}
+    {#            </label>#}
+    {#        </div>#}
+    {#    </div>#}
+
+
+
 
     <div class="container">
 
@@ -323,7 +446,6 @@
 
 
 
-
     <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#home">Home</a></li>
         <li><a href="#profile">Profile</a></li>
@@ -348,6 +470,2353 @@
             })
         })
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="nav nav-tabs list-inline" id="myTab1">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#messages">Messages</a></li>
+        <li><a href="#settings">Settings</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">home</div>
+        <div class="tab-pane" id="profile">profile</div>
+        <div class="tab-pane" id="messages">message</div>
+        <div class="tab-pane" id="settings">setting</div>
+    </div>
+
+    <script>
+        $(function () {
+            $('#myTab1 a:first').tab('show');//初始化显示哪个tab
+
+            $('#myTab1 a').click(function (e) {
+                e.preventDefault();//阻止a链接的跳转行为
+                $(this).tab('show');//显示当前选中的链接及关联的content
+            })
+        })
+    </script>
+
+
+
+
+    <ul class="nav nav-list bs-docs-sidenav affix">
+        <li class=""><a href="http://bootstrap.kinghack.com/getting-started.html#download-bootstrap"><i
+                class="icon-chevron-right"></i> 下载</a></li>
+        <li class="active"><a href="http://bootstrap.kinghack.com/getting-started.html#file-structure"><i
+                class="icon-chevron-right"></i>文件结构</a></li>
+        <li class=""><a href="http://bootstrap.kinghack.com/getting-started.html#contents"><i
+                class="icon-chevron-right"></i>包含内容</a></li>
+        <li class=""><a href="http://bootstrap.kinghack.com/getting-started.html#html-template"><i
+                class="icon-chevron-right"></i>HTML模版</a></li>
+        <li class=""><a href="http://bootstrap.kinghack.com/getting-started.html#examples"><i
+                class="icon-chevron-right"></i>例子</a></li>
+        <li class=""><a href="./Bootstrap框架-Bootstrap学习_files/Bootstrap框架-Bootstrap学习.html"><i
+                class="icon-chevron-right"></i>接下来?</a></li>
+    </ul>
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交按钮</button>
+            </form>
+            <button type="button" class="btn btn-default navbar-btn">
+                导航栏按钮
+            </button>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <p class="navbar-text">Signed in as Thomas</p>
+        </div>
+    </nav>
+
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <p class="navbar-text navbar-right">Signed in as
+                <a href="#" class="navbar-link">Thomas</a>
+            </p>
+        </div>
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <!--向左对齐-->
+            <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <button type="submit" class="btn btn-default">
+                    向左对齐-提交按钮
+                </button>
+            </form>
+            <p class="navbar-text navbar-left">向左对齐-文本</p>
+            <!--向右对齐-->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <button type="submit" class="btn btn-default">
+                    向右对齐-提交按钮
+                </button>
+            </form>
+            <p class="navbar-text navbar-right">向右对齐-文本</p>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">2013</a></li>
+        <li class="active">十一月</li>
+    </ol>
+
+
+
+
+
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                data-toggle="dropdown">
+            主题
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">
+                    数据通信/网络
+                </a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+             aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+            <span class="sr-only">40% 完成</span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Bootstrap Affix</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-3" id="myScrollspy">
+                <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+                    <li class="active"><a href="#section-1">第一部分</a></li>
+                    <li><a href="#section-2">第二部分</a></li>
+                    <li><a href="#section-3">第三部分</a></li>
+                    <li><a href="#section-4">第四部分</a></li>
+                    <li><a href="#section-5">第五部分</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-9">
+                <h2 id="section-1">第一部分</h2>
+
+                <p>Vestibulum qodo iaculis justo viverra. Etiam vithendrerit tellus.</p>
+                <hr>
+                <h2 id="section-2">第二部分</h2>
+
+                <p>Vestibulu</p>
+                <hr>
+                <h2 id="section-3">第三部分</h2>
+
+                <p>Quisque pharetra velit id v</p>
+                <hr>
+                <h2 id="section-4">第四部分</h2>
+
+                <p>Ut ut risus nisl. Fusce porttitor eros a</p>
+                <hr>
+                <h2 id="section-5">第五部分</h2>
+
+                <p>Sed vitae lobortis diam, id molestie magna. Al</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div style="padding: 100px 100px 10px;">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+               <span class="input-group-addon">
+                  <input type="checkbox">
+               </span>
+                        <input type="text" class="form-control">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 --><br>
+
+                <div class="col-lg-6">
+                    <div class="input-group">
+               <span class="input-group-addon">
+                  <input type="radio">
+               </span>
+                        <input type="text" class="form-control">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </form>
+    </div>
+
+
+
+
+    <div style="padding: 100px 100px 10px;">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+               <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">
+                      Go!
+                  </button>
+               </span>
+                        <input type="text" class="form-control">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 --><br>
+
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+               <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">
+                      Go!
+                  </button>
+               </span>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </form>
+    </div>
+
+
+
+
+
+    <div style="padding: 100px 100px 10px;">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default
+                     dropdown-toggle" data-toggle="dropdown">
+                                下拉菜单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">功能</a></li>
+                                <li><a href="#">另一个功能</a></li>
+                                <li><a href="#">其他</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">分离的链接</a></li>
+                            </ul>
+                        </div>
+                        <!-- /btn-group -->
+                        <input type="text" class="form-control">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 --><br>
+
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default
+                     dropdown-toggle" data-toggle="dropdown">
+                                下拉菜单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#">功能</a></li>
+                                <li><a href="#">另一个功能</a></li>
+                                <li><a href="#">其他</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">分离的链接</a></li>
+                            </ul>
+                        </div>
+                        <!-- /btn-group -->
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </form>
+    </div>
+
+
+
+    <p>标签式的导航菜单</p>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+
+
+
+    <p>垂直的胶囊式导航菜单</p>
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+
+
+
+
+    <p>两端对齐的导航元素</p>
+    <ul class="nav nav-pills nav-justified">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul><br><br><br>
+
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+
+
+
+
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+
+
+
+
+    <h1>Example Heading <span class="label label-default">Label</span></h1>
+    <h2>Example Heading <span class="label label-default">Label</span></h2>
+    <h3>Example Heading <span class="label label-default">Label</span></h3>
+    <h4>Example Heading <span class="label label-default">Label</span></h4>
+
+
+
+    <span class="label label-default">默认标签</span>
+    <span class="label label-primary">主要标签</span>
+    <span class="label label-success">成功标签</span>
+    <span class="label label-info">信息标签</span>
+    <span class="label label-warning">警告标签</span>
+    <span class="label label-danger">危险标签</span>
+
+
+
+
+    <h4>胶囊式导航中的激活状态</h4>
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#">首页 <span class="badge">42</span></a></li>
+        <li><a href="#">简介</a></li>
+        <li><a href="#">消息 <span class="badge">3</span></a></li>
+    </ul>
+    <br>
+    <h4>列表导航中的激活状态</h4>
+    <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+        <li class="active">
+            <a href="#">
+                <span class="badge pull-right">42</span>
+                首页
+            </a>
+        </li>
+        <li><a href="#">简介</a></li>
+        <li>
+            <a href="#">
+                <span class="badge pull-right">3</span>
+                消息
+            </a>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+    <h1>我是标题1 h1.
+        <small>我是副标题1 h1</small>
+    </h1>
+    <h2>我是标题2 h2.
+        <small>我是副标题2 h2</small>
+    </h2>
+    <h3>我是标题3 h3.
+        <small>我是副标题3 h3</small>
+    </h3>
+    <h4>我是标题4 h4.
+        <small>我是副标题4 h4</small>
+    </h4>
+    <h5>我是标题5 h5.
+        <small>我是副标题5 h5</small>
+    </h5>
+    <h6>我是标题6 h6.
+        <small>我是副标题6 h6</small>
+    </h6>
+
+
+
+
+    <small>本行内容是在标签内</small><br>
+    <strong>本行内容是在标签内</strong><br>
+    <em>本行内容是在标签内，并呈现为斜体</em><br>
+    <p class="text-left">向左对齐文本</p>
+    <p class="text-center">居中对齐文本</p>
+    <p class="text-right">向右对齐文本</p>
+    <p class="text-muted">本行内容是减弱的</p>
+    <p class="text-primary">本行内容带有一个 primary class</p>
+    <p class="text-success">本行内容带有一个 success class</p>
+    <p class="text-info">本行内容带有一个 info class</p>
+    <p class="text-warning">本行内容带有一个 warning class</p>
+    <p class="text-danger">本行内容带有一个 danger class</p>
+
+
+    <abbr title="World Wide Web">WWW</abbr><br>
+    <abbr title="Real Simple Syndication" class="initialism">RSS</abbr>
+
+
+
+    <address>
+        <strong>Some Company, Inc.</strong><br>
+        007 street<br>
+        Some City, State XXXXX<br>
+        <abbr title="Phone">P:</abbr> (123) 456-7890
+    </address>
+
+    <address>
+        <strong>Full Name</strong><br>
+        <a href="mailto:#">mailto@somedomain.com</a>
+    </address>
+
+
+
+    <blockquote><p>
+        这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。</p>
+    </blockquote>
+    <blockquote>这是一个带有源标题的引用。
+        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+    </blockquote>
+    <blockquote class="pull-right">这是一个向右对齐的引用。
+        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+    </blockquote>
+
+
+
+
+    <h4>有序列表</h4>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ol>
+    <h4>无序列表</h4>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <h4>未定义样式列表</h4>
+    <ul class="list-unstyled">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <h4>内联列表</h4>
+    <ul class="list-inline">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <h4>定义列表</h4>
+    <dl>
+        <dt>Description 1</dt>
+        <dd>Item 1</dd>
+        <dt>Description 2</dt>
+        <dd>Item 2</dd>
+    </dl>
+    <h4>水平的定义列表</h4>
+    <dl class="dl-horizontal">
+        <dt>Description 1</dt>
+        <dd>Item 1</dd>
+        <dt>Description 2</dt>
+        <dd>Item 2</dd>
+    </dl>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3"
+                 style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <div class="col-xs-6 col-sm-3"
+                 style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat.
+                </p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut.
+                </p>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+
+            <div class="col-xs-6 col-sm-3"
+                 style="background-color: #dedef8;
+         box-shadow:inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="col-xs-6 col-sm-3"
+                 style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+
+        <h1>Hello, world!</h1>
+
+        <div class="row">
+            <div class="col-xs-6 col-md-offset-3"
+                 style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+
+        <h1>Hello, world!</h1>
+
+        <div class="row">
+
+            <div class="col-md-3" style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <h4>第一列</h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="col-md-9" style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <h4>第二列 - 分为四个盒子</h4>
+
+                <div class="row">
+                    <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                        <p>Consectetur art party Tonx culpa semiotics. Pinterest
+                            assumenda minim organic quis.
+                        </p>
+                    </div>
+                    <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                        <p> sed do eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                        <p>quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                    <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="container">
+
+        <h1>Hello, world!</h1>
+
+        <div class="row">
+            <p>排序前</p>
+
+            <div class="col-md-4" style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                我在左边
+            </div>
+            <div class="col-md-8" style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                我在右边
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <p>排序后</p>
+
+            <div class="col-md-4 col-md-push-8"
+                 style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444,
+         inset -1px 1px 1px #444;">
+                我在左边
+            </div>
+            <div class="col-md-8 col-md-pull-4"
+                 style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444,
+         inset -1px 1px 1px #444;">
+                我在右边
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">名字</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="firstname"
+                       placeholder="请输入名字">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">姓</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="lastname"
+                       placeholder="请输入姓">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> 请记住我
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">登录</button>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+    <form role="form">
+        <div class="form-group">
+            <label for="name">选择列表</label>
+            <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+            <label for="name">可多选的选择列表</label>
+            <select multiple class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </form>
+
+
+
+
+
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+
+            <div class="col-sm-10">
+                <p class="form-control-static">email@example.com</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword"
+                       placeholder="请输入密码">
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">聚焦</label>
+
+            <div class="col-sm-10">
+                <input class="form-control" id="focusedInput" type="text"
+                       value="该输入框获得焦点...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">
+                禁用
+            </label>
+
+            <div class="col-sm-10">
+                <input class="form-control" id="disabledInput" type="text"
+                       placeholder="该输入框禁止输入..." disabled>
+            </div>
+        </div>
+        <fieldset disabled>
+            <div class="form-group">
+                <label for="disabledTextInput" class="col-sm-2 control-label">
+                    禁用输入（Fieldset disabled）
+                </label>
+
+                <div class="col-sm-10">
+                    <input type="text" id="disabledTextInput" class="form-control"
+                           placeholder="禁止输入">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="disabledSelect" class="col-sm-2 control-label">
+                    禁用选择菜单（Fieldset disabled）
+                </label>
+
+                <div class="col-sm-10">
+                    <select id="disabledSelect" class="form-control">
+                        <option>禁止选择</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group has-success">
+            <label class="col-sm-2 control-label" for="inputSuccess">
+                输入成功
+            </label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSuccess">
+            </div>
+        </div>
+        <div class="form-group has-warning">
+            <label class="col-sm-2 control-label" for="inputWarning">
+                输入警告
+            </label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputWarning">
+            </div>
+        </div>
+        <div class="form-group has-error">
+            <label class="col-sm-2 control-label" for="inputError">
+                输入错误
+            </label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputError">
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+    <form role="form">
+        <div class="form-group">
+            <input class="form-control input-lg" type="text"
+                   placeholder=".input-lg">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="默认输入">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control input-sm" type="text"
+                   placeholder=".input-sm">
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+            <select class="form-control input-lg">
+                <option value="">.input-lg</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="form-control">
+                <option value="">默认选择</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="form-control input-sm">
+                <option value="">.input-sm</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2">
+                <input type="text" class="form-control" placeholder=".col-lg-2">
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder=".col-lg-3">
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder=".col-lg-4">
+            </div>
+        </div>
+    </form>
+
+
+
+    <form role="form">
+        <span>帮助文本实例</span>
+        <input class="form-control" type="text" placeholder="">
+   <span class="help-block">一个较长的帮助文本块，超过一行，
+   需要扩展到下一行。本实例中的帮助文本总共有两行。</span>
+    </form>
+
+
+
+
+
+    <!-- 标准的按钮 -->
+    <button type="button" class="btn btn-default">默认按钮</button>
+
+    <!-- 提供额外的视觉效果，标识一组按钮中的原始动作 -->
+    <button type="button" class="btn btn-primary">原始按钮</button>
+
+    <!-- 表示一个成功的或积极的动作 -->
+    <button type="button" class="btn btn-success">成功按钮</button>
+
+    <!-- 信息警告消息的上下文按钮 -->
+    <button type="button" class="btn btn-info">信息按钮</button>
+
+    <!-- 表示应谨慎采取的动作 -->
+    <button type="button" class="btn btn-warning">警告按钮</button>
+
+    <!-- 表示一个危险的或潜在的负面动作 -->
+    <button type="button" class="btn btn-danger">危险按钮</button>
+
+    <!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为 -->
+    <button type="button" class="btn btn-link">链接按钮</button>
+
+
+
+
+
+
+
+
+
+
+
+    <p>
+        <button type="button" class="btn btn-primary btn-lg">
+            大的原始按钮
+        </button>
+        <button type="button" class="btn btn-default btn-lg">
+            大的按钮
+        </button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary">
+            默认大小的原始按钮
+        </button>
+        <button type="button" class="btn btn-default">
+            默认大小的按钮
+        </button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-sm">
+            小的原始按钮
+        </button>
+        <button type="button" class="btn btn-default btn-sm">
+            小的按钮
+        </button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-xs">
+            特别小的原始按钮
+        </button>
+        <button type="button" class="btn btn-default btn-xs">
+            特别小的按钮
+        </button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            块级的原始按钮
+        </button>
+        <button type="button" class="btn btn-default btn-lg btn-block">
+            块级的按钮
+        </button>
+    </p>
+
+
+
+
+    <p>
+        <button type="button" class="btn btn-default btn-lg ">
+            默认按钮
+        </button>
+        <button type="button" class="btn btn-default btn-lg active">
+            激活按钮
+        </button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-lg ">
+            原始按钮
+        </button>
+        <button type="button" class="btn btn-primary btn-lg active">
+            激活的原始按钮
+        </button>
+    </p>
+
+
+
+
+    <p>
+        <button type="button" class="btn btn-default btn-lg">
+            默认按钮
+        </button>
+        <button type="button" class="btn btn-default btn-lg" disabled="disabled">
+            禁用按钮
+        </button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-lg ">
+            原始按钮
+        </button>
+        <button type="button" class="btn btn-primary btn-lg" disabled="disabled">
+            禁用的原始按钮
+        </button>
+    </p>
+    <p>
+        <a href="#" class="btn btn-default btn-lg" role="button">
+            链接
+        </a>
+        <a href="#" class="btn btn-default btn-lg disabled" role="button">
+            禁用链接
+        </a>
+    </p>
+    <p>
+        <a href="#" class="btn btn-primary btn-lg" role="button">
+            原始链接
+        </a>
+        <a href="#" class="btn btn-primary btn-lg disabled" role="button">
+            禁用的原始链接
+        </a>
+    </p>
+
+
+
+
+    <a class="btn btn-default" href="#" role="button">链接</a>
+    <button class="btn btn-default" type="submit">按钮</button>
+    <input class="btn btn-default" type="button" value="输入">
+    <input class="btn btn-default" type="submit" value="提交">
+
+
+
+
+    <img src="/wp-content/uploads/2014/06/download.png"
+         class="img-rounded">
+    <img src="/wp-content/uploads/2014/06/download.png"
+         class="img-circle">
+    <img src="/wp-content/uploads/2014/06/download.png"
+         class="img-thumbnail">
+
+
+
+    <p>插入符实例
+        <span class="caret"></span>
+    </p>
+
+
+
+    <p>关闭图标实例
+        <button type="button" class="close" aria-hidden="true">
+            &times;
+        </button>
+    </p>
+
+
+
+
+    <div class="pull-left">
+        向左快速浮动
+    </div>
+    <div class="pull-right">
+        向右快速浮动
+    </div>
+
+
+
+    <div class="row">
+        <div class="center-block" style="width:200px;background-color:#ccc;">
+            这是 center-block 实例
+        </div>
+    </div>
+
+
+
+
+    <div class="row" style="padding: 91px 100px 19px 50px;">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="email">Email 地址</label>
+                <input type="email" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="pass">密码</label>
+                <input type="password" class="form-control" placeholder="Password">
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="container" style="padding: 40px;">
+    <div class="row visible-on">
+        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <span class="hidden-xs">特别小型</span>
+            <span class="visible-xs">✔ 在特别小型设备上可见</span>
+        </div>
+        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <span class="hidden-sm">小型</span>
+            <span class="visible-sm">✔ 在小型设备上可见</span>
+        </div>
+        <div class="clearfix visible-xs"></div>
+        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <span class="hidden-md">中型</span>
+            <span class="visible-md">✔ 在中型设备上可见</span>
+        </div>
+        <div class="col-xs-6 col-sm-3" style="background-color: #dedef8;
+         box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <span class="hidden-lg">大型</span>
+            <span class="visible-lg">✔ 在大型设备上可见</span>
+        </div>
+    </div>
+
+
+
+    <button type="button" class="btn btn-primary btn-lg" style="color: rgb(212, 106, 64);">
+        <span class="glyphicon glyphicon-user"></span> User
+    </button>
+
+
+    <button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+        <span class="glyphicon glyphicon-user"></span> User
+    </button>
+
+    <button type="button" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-user"></span> User
+    </button>
+
+
+
+
+
+    <div class="container">
+        <h2>Arrow-left Glyph</h2>
+
+        <p>Arrow-left icon: <span class="glyphicon glyphicon-arrow-left"></span></p>
+
+        <p>Arrow-left icon as a link:
+            <a href="#">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+        </p>
+
+        <p>Arrow-left icon on a button:
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-arrow-left"></span> Arrow-left
+            </button>
+        </p>
+        <p>Arrow-left icon on a styled link button:
+            <a href="#" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-arrow-left"></span> Arrow-left
+            </a>
+        </p>
+    </div>
+
+
+
+
+
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                data-toggle="dropdown">主题
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu"
+            aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">
+                    数据通信/网络
+                </a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default">按钮 1</button>
+        <button type="button" class="btn btn-default">按钮 2</button>
+        <button type="button" class="btn btn-default">按钮 3</button>
+    </div>
+
+
+
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default">按钮 1</button>
+            <button type="button" class="btn btn-default">按钮 2</button>
+            <button type="button" class="btn btn-default">按钮 3</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default">按钮 4</button>
+            <button type="button" class="btn btn-default">按钮 5</button>
+            <button type="button" class="btn btn-default">按钮 6</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default">按钮 7</button>
+            <button type="button" class="btn btn-default">按钮 8</button>
+            <button type="button" class="btn btn-default">按钮 9</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default">按钮 1</button>
+        <button type="button" class="btn btn-default">按钮 2</button>
+        <button type="button" class="btn btn-default">按钮 3</button>
+    </div>
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-default">按钮 4</button>
+        <button type="button" class="btn btn-default">按钮 5</button>
+        <button type="button" class="btn btn-default">按钮 6</button>
+    </div>
+    <div class="btn-group btn-group-xs">
+        <button type="button" class="btn btn-default">按钮 7</button>
+        <button type="button" class="btn btn-default">按钮 8</button>
+        <button type="button" class="btn btn-default">按钮 9</button>
+    </div>
+
+
+
+
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default">按钮 1</button>
+        <button type="button" class="btn btn-default">按钮 2</button>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown">
+                下列
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">下拉链接 1</a></li>
+                <li><a href="#">下拉链接 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="btn-group-vertical">
+        <button type="button" class="btn btn-default">按钮 1</button>
+        <button type="button" class="btn btn-default">按钮 2</button>
+
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown">
+                下拉
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">下拉链接 1</a></li>
+                <li><a href="#">下拉链接 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown">
+            默认 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle"
+                data-toggle="dropdown">
+            原始 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default">默认</button>
+        <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">切换下拉菜单</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">原始</button>
+        <button type="button" class="btn btn-primary dropdown-toggle"
+                data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">切换下拉菜单</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle btn-lg"
+                data-toggle="dropdown">
+            默认 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle btn-sm"
+                data-toggle="dropdown">
+            原始 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle btn-xs"
+                data-toggle="dropdown">
+            成功 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">功能</a></li>
+            <li><a href="#">另一个功能</a></li>
+            <li><a href="#">其他</a></li>
+            <li class="divider"></li>
+            <li><a href="#">分离的链接</a></li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="row" style="margin-left:50px; margin-top:200px">
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown">
+                默认 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">功能</a></li>
+                <li><a href="#">另一个功能</a></li>
+                <li><a href="#">其他</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+            </ul>
+        </div>
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-primary dropdown-toggle"
+                    data-toggle="dropdown">
+                原始 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">功能</a></li>
+                <li><a href="#">另一个功能</a></li>
+                <li><a href="#">其他</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <p><code>&lt;header&gt;</code> 作为内联元素被包围。</p>
+    <p>如果需要把代码显示为一个独立的块元素，请使用
+    <pre> 标签：</pre>
+    <pre>
+  &lt;article&gt;
+    &lt;h1&gt;Article Heading&lt;/h1&gt;
+  &lt;/article&gt;
+</pre>
+
+
+
+
+
+
+    <table class="table">
+        <caption>基本的表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+    <table class="table table-striped">
+        <caption>条纹表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+            <th>密码</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>560001</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>400003</td>
+        </tr>
+        <tr>
+            <td>Uma</td>
+            <td>Pune</td>
+            <td>411027</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <table class="table table-bordered">
+        <caption>边框表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+            <th>密码</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>560001</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>400003</td>
+        </tr>
+        <tr>
+            <td>Uma</td>
+            <td>Pune</td>
+            <td>411027</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+    <table class="table table-hover">
+        <caption>悬停表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+            <th>密码</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>560001</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>400003</td>
+        </tr>
+        <tr>
+            <td>Uma</td>
+            <td>Pune</td>
+            <td>411027</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+    <table class="table table-condensed">
+        <caption>精简表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+            <th>密码</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>560001</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>400003</td>
+        </tr>
+        <tr>
+            <td>Uma</td>
+            <td>Pune</td>
+            <td>411027</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <table class="table">
+        <caption>上下文表格布局</caption>
+        <thead>
+        <tr>
+            <th>产品</th>
+            <th>付款日期</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <td>产品1</td>
+            <td>23/11/2013</td>
+            <td>待发货</td>
+        </tr>
+        <tr class="success">
+            <td>产品2</td>
+            <td>10/11/2013</td>
+            <td>发货中</td>
+        </tr>
+        <tr class="warning">
+            <td>产品3</td>
+            <td>20/10/2013</td>
+            <td>待确认</td>
+        </tr>
+        <tr class="danger">
+            <td>产品4</td>
+            <td>20/10/2013</td>
+            <td>已退货</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <caption>响应式表格布局</caption>
+            <thead>
+            <tr>
+                <th>产品</th>
+                <th>付款日期</th>
+                <th>状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>产品1</td>
+                <td>23/11/2013</td>
+                <td>待发货</td>
+            </tr>
+            <tr>
+                <td>产品2</td>
+                <td>10/11/2013</td>
+                <td>发货中</td>
+            </tr>
+            <tr>
+                <td>产品3</td>
+                <td>20/10/2013</td>
+                <td>待确认</td>
+            </tr>
+            <tr>
+                <td>产品4</td>
+                <td>20/10/2013</td>
+                <td>已退货</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target=".bs-js-navbar-scrollspy">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">教程名称</a>
+        </div>
+        <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+            <ul class="nav navbar-nav">
+                <li><a href="#ios">iOS</a></li>
+                <li><a href="#svn">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" id="navbarDrop1" class="dropdown-toggle"
+                       data-toggle="dropdown">Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="menu"
+                        aria-labelledby="navbarDrop1">
+                        <li><a href="#jmeter" tabindex="-1">jmeter</a></li>
+                        <li><a href="#ejb" tabindex="-1">ejb</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#spring" tabindex="-1">spring</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div data-spy="scroll" data-target="#navbar-example" data-offset="0"
+         style="height:200px;overflow:auto; position: relative;">
+        <h4 id="ios">iOS</h4>
+
+        <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+        </p>
+        <h4 id="svn">SVN</h4>
+
+        <p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache Software
+            Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。
+        </p>
+        <h4 id="jmeter">jMeter</h4>
+
+        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。
+        </p>
+        <h4 id="ejb">EJB</h4>
+
+        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+        </p>
+        <h4 id="spring">Spring</h4>
+
+        <p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。
+        </p>
+
+        <p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。
+        </p>
+    </div>
+
+
+
+
+
+
+
+
+    <nav id="myScrollspy" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target=".bs-js-navbar-scrollspy">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">教程名称</a>
+        </div>
+        <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#ios">iOS</a></li>
+                <li><a href="#svn">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" id="navbarDrop1" class="dropdown-toggle"
+                       data-toggle="dropdown">Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="menu"
+                        aria-labelledby="navbarDrop1">
+                        <li><a href="#jmeter" tabindex="-1">jmeter</a></li>
+                        <li><a href="#ejb" tabindex="-1">ejb</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#spring" tabindex="-1">spring</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div data-spy="scroll" data-target="#myScrollspy" data-offset="0"
+         style="height:200px;overflow:auto; position: relative;">
+        <div class="section">
+            <h4 id="ios">iOS
+                <small><a href="#" onclick="removeSection(this);">
+                    &times; 删除该部分</a></small>
+            </h4>
+            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+        </div>
+        <div class="section">
+            <h4 id="svn">SVN
+                <small></small>
+            </h4>
+            <p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache Software
+                Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。</p>
+        </div>
+        <div class="section">
+            <h4 id="jmeter">jMeter
+                <small><a href="#" onclick="removeSection(this);">
+                    &times; 删除该部分</a></small>
+            </h4>
+            <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+        </div>
+        <div class="section">
+            <h4 id="ejb">EJB</h4>
+
+            <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
+        </div>
+        <div class="section">
+            <h4 id="spring">Spring</h4>
+
+            <p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。</p>
+
+            <p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            removeSection = function (e) {
+                $(e).parents(".section").remove();
+                $('[data-spy="scroll"]').each(function () {
+                    var $spy = $(this).scrollspy('refresh')
+                });
+            }
+            $("#myScrollspy").scrollspy();
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <nav id="myScrollspy" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target=".bs-js-navbar-scrollspy">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">教程名称</a>
+        </div>
+        <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#ios">iOS</a></li>
+                <li><a href="#svn">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" id="navbarDrop1" class="dropdown-toggle"
+                       data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="menu"
+                        aria-labelledby="navbarDrop1">
+                        <li><a href="#jmeter" tabindex="-1">jmeter</a></li>
+                        <li><a href="#ejb" tabindex="-1">ejb</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#spring" tabindex="-1">spring</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div data-spy="scroll" data-target="#myScrollspy" data-offset="0"
+         style="height:200px;overflow:auto; position: relative;">
+        <div class="section">
+            <h4 id="ios">iOS
+                <small><a href="#" onclick="removeSection(this);">
+                    &times; 删除该部分</a></small>
+            </h4>
+            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+        </div>
+        <div class="section">
+            <h4 id="svn">SVN
+                <small></small>
+            </h4>
+            <p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache Software
+                Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。</p>
+        </div>
+        <div class="section">
+            <h4 id="jmeter">jMeter
+                <small><a href="#" onclick="removeSection(this);">
+                    &times; 删除该部分</a></small>
+            </h4>
+            <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+        </div>
+        <div class="section">
+            <h4 id="ejb">EJB</h4>
+
+            <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
+        </div>
+        <div class="section">
+            <h4 id="spring">Spring</h4>
+
+            <p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。</p>
+
+            <p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。</p>
+        </div>
+    </div>
+    <span id="activeitem" style="color:red;"></span>
+    <script type="text/javascript">
+        $(function () {
+            removeSection = function (e) {
+                $(e).parents(".section").remove();
+                $('[data-spy="scroll"]').each(function () {
+                    var $spy = $(this).scrollspy('refresh')
+                });
+            }
+            $("#myScrollspy").scrollspy();
+            $('#myScrollspy').on('activate.bs.scrollspy', function () {
+                var currentItem = $(".nav li.active > a").text();
+                $("#activeitem").html("目前您正在查看 - " + currentItem);
+            })
+        });
+    </script>
+
+
+
+    <div class="container">
+        <div class="row">
+            <nav class="col-sm-3" id="myScrollspy">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#section1">Section 1</a></li>
+                    <li><a href="#section2">Section 2</a></li>
+                    <li><a href="#section3">Section 3</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#section41">Section 4-1</a></li>
+                            <li><a href="#section42">Section 4-2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-sm-9">
+                <div id="section1">
+                    <h1>Section 1</h1>
+
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section2">
+                    <h1>Section 2</h1>
+
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section3">
+                    <h1>Section 3</h1>
+
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section41">
+                    <h1>Section 4-1</h1>
+
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section42">
+                    <h1>Section 4-2</h1>
+
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Something</a></li>
+            <li><a href="#">Nothing</a></li>
+            <li class="disabled"><a href="#">Disabled</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Dropdown
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Four</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">W3Cschool</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
 {% endblock %}>

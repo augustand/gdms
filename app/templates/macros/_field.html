@@ -1,14 +1,7 @@
 {% macro render_field(field,check=False,radio=False) %}
 
-    <div class="form-group{% if field.errors %} has-error{% endif %}">
+    <div class="form-group">
         <div class="col-sm-9">
-            {% if field.errors %}
-                <ul class="help-block">
-                    {% for error in field.errors %}
-                        <li class="error">{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
 
             {% if radio %}
 
@@ -20,7 +13,6 @@
                     {{ field.label.text }}
 
                 </label>
-
 
             {% else %}
                 {{ field(placeholder=field.label.text )|safe }}

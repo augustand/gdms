@@ -1,14 +1,16 @@
-#encoding=utf-8
+# encoding=utf-8
 from app import app
-from app.forms import LoginForm
-from flask import render_template, request,redirect
+from flask import render_template
 from .user import user
+from ..forms import LoginForm
+
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    form = LoginForm(request.form)
-    if request.method == "POST" and form.validate():
-            return redirect("/user/login")
+    form = LoginForm()
     return render_template("index.html", form=form)
 
-app.register_blueprint(user,url_prefix='/user')
+
+app.register_blueprint(user, url_prefix='/user')
+
+

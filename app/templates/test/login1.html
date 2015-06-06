@@ -29,3 +29,42 @@
 </div>
 </body>
 </html>
+
+
+<div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <form action="" method="POST" class="form-horizontal" role="form">
+
+                        <h2 class="col-sm-offset-3">用户登录</h2>
+
+                        <div class="col-sm-offset-3">
+                            {{ render_field(form.username) }}
+                        </div>
+
+                        <div class="col-sm-offset-3">
+                            {{ render_field(form.password) }}
+                        </div>
+
+
+                        <div class="col-sm-offset-3">
+                            {{ render_field(form.user_type,radio=True) }}
+                        </div>
+
+
+                        <div class="col-sm-offset-3">
+                            {{ render_field(form.remember_me,check=True) }}
+
+                        </div>
+                        <div class="col-sm-offset-3">
+                            <input class="btn btn-info" type="submit" value="用户登录"/>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

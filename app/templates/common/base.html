@@ -4,7 +4,7 @@
     {#metas  #}
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     {% block metas %}{% endblock metas %}
     {#metas #}
 
@@ -19,7 +19,7 @@
 
     {#自定义mystyle#}
 
-
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/screen.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-theme.min.css') }}"/>
     {% block mystyle %}{% endblock mystyle %}
@@ -28,6 +28,20 @@
     {#自定义myjavascript#}
     <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.validate.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/messages_zh.js') }}"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#warning-block").toggle(3000)
+            $("#warning-block").click(function () {
+                $(this).hide();
+            });
+
+        });
+    </script>
+
     {% block myjs %}{% endblock myjs %}
     {#自定义myjavascript#}
 
@@ -42,21 +56,24 @@
 
 
 <div class="container">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                {% if category == 'error' %}
-                    <div class="alert alert-danger" role="alert">{{ message }}</div>
-                {% elif category == 'warning' %}
-                    <div class="alert alert-warning" role="alert">{{ message }}</div>
-                {% elif category == 'success' %}
-                    <div class="alert alert-success" role="alert">{{ message }}</div>
-                {% else %}
-                    <div class="alert alert-info" role="alert">{{ message }}</div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    <div class="" id="warning-block">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <br><br><br>
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="alert alert-danger" role="alert">{{ message }}</div>
+                    {% elif category == 'warning' %}
+                        <div class="alert alert-warning" role="alert">{{ message }}</div>
+                    {% elif category == 'success' %}
+                        <div class="alert alert-success" role="alert">{{ message }}</div>
+                    {% else %}
+                        <div class="alert alert-info" role="alert">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
 
     {#内容#}
     {% block content %}{% endblock content %}
@@ -64,57 +81,37 @@
 </div>
 
 
-{% for x in range(3) %}
-    <br>
-{% endfor %}
-
-
-
-
-<footer class="blog-footer" style="bottom:0px;">
-    <!-- 内置块css定义 -->
-    <div class="container">
-        <!-- 一行一排 -->
-        <p>由 <a href="http://twitter.com/mdo" target="_blank">@mdo</a> 和
-            <a href="http://twitter.com/fat" target="_blank">@fat</a>
-            倾心制作开发,由KingHack学习并注解
-        </p>
-
-        <p>开源依照 <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, 文档依照
-            <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-        </p>
-
-        <p>Icons取自<a href="http://glyphicons.com" target="_blank">Glyphicons Free</a> ,授权依照
-            <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-        </p>
-
-        <!-- 尾部链接 -->
-        <ul class="footer-links">
-            <a href="http://blog.getbootstrap.com">博客</a>
-            <a href="https://github.com/twitter/bootstrap/issues?state=open">问题反馈</a>
-            <!-- 使用内置标准点分割 -->
-            <a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">路线图与更新日志</a>
-        </ul>
-
-    </div>
-</footer>
-
-
 {#尾部#}
-{#{% block footer %}#}
-{#    <div class="blog-footer" style="bottom:0px;">#}
-{#        <p>#}
-{#            gdms template built for#}
-{#            <a href="http://getbootstrap.com">Bootstrap</a> by#}
-{#            <a href="https://twitter.com/mdo">@mdo</a>.#}
-{#        </p>#}
-{##}
-{#        <p>#}
-{#            <a href="#_header ">Back to top</a>#}
-{#        </p>#}
-{#    </div>#}
-{##}
-{#{% endblock footer %}#}
+{% block footer %}
+    <footer class="panel-footer" style="bottom:0px;">
+        <!-- 内置块css定义 -->
+        <div class="container">
+            <!-- 一行一排 -->
+            <p>由 <a href="http://twitter.com/mdo" target="_blank">@mdo</a> 和
+                <a href="http://twitter.com/fat" target="_blank">@fat</a>
+                倾心制作开发,由KingHack学习并注解
+            </p>
+
+            <p>开源依照 <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, 文档依照
+                <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+            </p>
+
+            <p>Icons取自<a href="http://glyphicons.com" target="_blank">Glyphicons Free</a> ,授权依照
+                <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+            </p>
+
+            <!-- 尾部链接 -->
+            <ul class="footer-links">
+                <a href="http://blog.getbootstrap.com">博客</a>
+                <a href="https://github.com/twitter/bootstrap/issues?state=open">问题反馈</a>
+                <!-- 使用内置标准点分割 -->
+                <a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">路线图与更新日志</a>
+            </ul>
+
+        </div>
+    </footer>
+{% endblock footer %}
 {#尾部#}
+
 </body>
 </html>

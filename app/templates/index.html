@@ -1,25 +1,83 @@
 {% extends "common/base.html" %}
-{% from "macros/_field.html" import render_field %}
 
-{% block mystyle %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/blog.css') }}">
-{% endblock %}
 
 {% block myjs %}
-    <script src="{{ url_for('static',filename='js/transition.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/tooltip.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/popover.js') }}"></script>
 
     <script>
         $(function () {
+
             $('#myTab a:first').tab('show');//初始化显示哪个tab
 
             $('#myTab a').click(function (e) {
+                console.log(e)
                 e.preventDefault();//阻止a链接的跳转行为
                 $(this).tab('show');//显示当前选中的链接及关联的content
+            });
+
+
+            $.validator.setDefaults({
+                success: function (label) {
+                    {#label是输入框后面的错误label                    #}
+                    label.addClass("valid").text("Ok")
+                    $('#show_error').html('')
+                },
+
+                errorPlacement: function (error, element) {
+                    $('#show_error').html('出现错误信息')
+                    if (element.is(":radio"))
+                        error.appendTo(element.parent().next());
+                    else if (element.is(":checkbox"))
+                        error.appendTo(element.next());
+                    else
+                        error.appendTo(element.parent());
+                }
             })
-        })
+
+
+            $("#formID").validate({
+
+                submitHandler: function (form) {
+                    {#把表单里面的数据转化为字典                    #}
+                    var form_data = $("#formID").serialize()
+
+                    $.ajax({
+                        url: '/user/login',
+                        type: 'post',
+                        dataType: 'json',
+                        data: form_data,
+                        cache: false,
+                        success: function (data, status) {
+
+                            if (data.value == 'false') {
+                                $('#show_error').html(data.errors)
+                            } else {
+                                $('#show_error').html('')
+                                window.location.reload()
+                            }
+                        },
+                        error: function (XMLHttpRequest, status, errorThrown) {
+                            alert(XMLHttpRequest.status);
+                            alert(status)
+                        }
+                    });
+
+                    {#                    reset表单#}
+                    {#                    this.resetForm();#}
+                },
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 15
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 15
+                    }
+                }
+            });
+        });
     </script>
 
 {% endblock %}
@@ -27,6 +85,64 @@
 
 
 {% block navbar %}
+
+
+    {#    <nav class="navbar navbar-default" role="navigation">#}
+    {#        <div class="navbar-header">#}
+    {#            <a class="navbar-brand" href="#">W3Cschool</a>#}
+    {#        </div>#}
+    {#        <div>#}
+    <!--向左对齐-->
+    {#            <ul class="nav navbar-nav navbar-left">#}
+    {#                <li class="dropdown">#}
+    {#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+    {#                        Java#}
+    {#                        <b class="caret"></b>#}
+    {#                    </a>#}
+    {#                    <ul class="dropdown-menu">#}
+    {#                        <li><a href="#">jmeter</a></li>#}
+    {#                        <li><a href="#">EJB</a></li>#}
+    {#                        <li><a href="#">Jasper Report</a></li>#}
+    {#                        <li class="divider"></li>#}
+    {#                        <li><a href="#">分离的链接</a></li>#}
+    {#                        <li class="divider"></li>#}
+    {#                        <li><a href="#">另一个分离的链接</a></li>#}
+    {#                    </ul>#}
+    {#                </li>#}
+    {#            </ul>#}
+    {#            <form class="navbar-form navbar-left" role="search">#}
+    {#                <button type="submit" class="btn btn-default">#}
+    {#                    向左对齐-提交按钮#}
+    {#                </button>#}
+    {#            </form>#}
+    {#            <p class="navbar-text navbar-left">向左对齐-文本</p>#}
+    <!--向右对齐-->
+
+    {#        <ul class="nav navbar-nav navbar-right">#}
+    {#            <li class="dropdown">#}
+    {#                <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+    {#                    Java <b class="caret"></b>#}
+    {#                </a>#}
+    {#                <ul class="dropdown-menu">#}
+    {#                    <li><a href="#">jmeter</a></li>#}
+    {#                    <li><a href="#">EJB</a></li>#}
+    {#                    <li><a href="#">Jasper Report</a></li>#}
+    {#                    <li class="divider"></li>#}
+    {#                    <li><a href="#">分离的链接</a></li>#}
+    {#                    <li class="divider"></li>#}
+    {#                    <li><a href="#">另一个分离的链接</a></li>#}
+    {#                </ul>#}
+    {#            </li>#}
+    {#        </ul>#}
+    {#        <form class="navbar-form navbar-right" role="search">#}
+    {#            <button type="submit" class="btn btn-default">#}
+    {#                向右对齐-提交按钮#}
+    {#            </button>#}
+    {#        </form>#}
+    {#        <p class="navbar-text navbar-right">向右对齐-文本</p>#}
+    {#        </div>#}
+    {#    </nav>#}
+
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -39,7 +155,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/ ">毕设管理系统</a>
+                <a class="navbar-brand" href="/ " title="毕设管理系统">毕设管理系统</a>
             </div>
 
 
@@ -48,6 +164,11 @@
                     <li class="active"><a href="#index">首页</a></li>
                     <li><a href="#about">关于</a></li>
                     <li><a href="#contact">联系</a></li>
+
+                    {% if session.username %}
+                        <li><a href="#myinfo">我的信息</a></li>
+                    {% endif %}
+
 
 
                     <li class="dropdown">
@@ -64,15 +185,15 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-
-
                 </ul>
-
-
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="btn btn-info" data-toggle="modal" data-target="#login">登录</a>
+                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">登录</a>
                     </li>
+                    <li>
+                        <a class="btn btn-primary btn-lg" href="/user/logout">退出</a>
+                    </li>
+
                 </ul>
             </div>
 
@@ -82,47 +203,15 @@
 
 {% block content %}
 
-    {#    <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#     <br><br><br>#}
-    {#         <br><br><br>#}
-    {#         <br><br><br>#}
+
     <br><br><br>
+
+
+
     <div class="tab-content">
         <div class="tab-pane active" id="index">
 
-            <p class="lead">
-
-                你若顽强到底，一切皆有可能
-
-                　　上班坐地铁，刚踏上电梯，忽然看见旁边楼梯上有一位手拄拐杖的残疾人，正蹒跚着拾级而上，而这时电梯并不拥挤。站在电梯上经过他身边，我忍不住回望，那是一张青年人的面庞，顿时我脑海中浮现出两个字：顽强！
-
-                　　上了电梯继续前行，旁边的墙壁上挂着一幅广告：几个年轻人埋头于堆成山的文件中，旁边一个年轻人手握酒杯，仰在椅子上，似在度假，广告语是“与其做梦，不如现在行动”。这让人联想到，这个年轻人若肯努力拼搏，那梦到的就是未来成功的自己，否则就只是做梦。
-
-                　　一个残疾人，一幅广告，看似是没有关联的两个事物，在此情景下却让我悟出一个道理：你若顽强到底，一切皆有可能！
-
-                　　面对艰难困苦，如果你选择顽强，那便是选择了“可能”，而“可能”就意味着“改变”。有人说，人生在世，不如意十之八九，要学会忍受。其实，人生本来并没有那么多的不如意要你来忍受。如果你顽强地强身健体，可能就不必忍受病痛的折磨；如果你顽强地学习，可能就不必忍受名落孙山的失落；如果你顽强地拼搏，可能就不必忍受碌碌无为的无奈……
-
-                　　然而，假如你选择妥协放弃，那一切皆是空话。近日，一名19岁的少年因受挫折，便微博直播结束自己的生命，令人惊叹不已：一朵本该顽强绽放的生命之花怎能被生活如此轻易击败？
-
-                　　还记得普希金着名的诗吗：“假如生活欺骗了你，不要悲伤，不要心急！阴郁的日子需要镇静；相信吧，那愉快的日子即将来临。”两百年前的诗句，今日读来依然令人心情平静而又昂扬向上。因为面对不幸，人们总会有两种选择：妥协或顽强，而人们向往的总是后者，能给予人们力量以改变命运的也是后者。
-
-                　　青年人对于自己的不幸，总能找到抱怨的理由：没有优越的家庭，没有美丽的面容，没有过硬的关系。其实，你也总该找到不抱怨的理由：你有温暖的家，善良的笑容，健康的体魄，青春的活力……这些不都足以让你以一种顽强的态度去奋斗吗？
-
-                　　“人们经常埋怨什么也做不来，但如果我们只记挂着想拥有或欠缺的东西，而不去珍惜所拥有的，那根本改变不了问题！真正改变命运的，并不是我们的机遇，而是我们的态度。”这是着名的残疾人励志演讲家尼克·胡哲在其自传《人生不设限》中的话。每一个第一眼看到尼克的人都会为他的身体之残缺而震撼，亦为其精神之顽强而震撼。就是这样一个没有双臂和双腿的男人，顽强地面对上天对他的不公，创造出了生命的奇迹。
-
-                　　尼克的故事告诉我们：当你用一种顽强的态度来面对人生，那你的人生就不设限！
-
-                　　青年人，还有什么理由不顽强到底呢？
-
-            </p>
-
+            {% include "includes/index_doc.html" %}
 
         </div>
         <div class="tab-pane" id="about">
@@ -132,62 +221,146 @@
                 并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
                 对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
                 并以美丽的图表方式展现出来，并把多年学生成绩作对比。
-
-
             </p>
         </div>
+
         <div class="tab-pane" id="contact">
             message
         </div>
-    </div>
 
-    <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-
-                    <form action="" method="POST" class="form-horizontal" role="form">
-
-                        <h2 class="col-sm-offset-3">用户登录</h2>
-
-                        <div class="col-sm-offset-3">
-                            {{ render_field(form.username) }}
-                        </div>
-
-                        <div class="col-sm-offset-3">
-                            {{ render_field(form.password) }}
-                        </div>
+        {% if session.username %}
+            {% include "includes/myinfo.html" %}
+        {% endif %}
 
 
-                        <div class="col-sm-offset-3">
-                            {{ render_field(form.user_type,radio=True) }}
-                        </div>
 
 
-                        <div class="col-sm-offset-3">
-                            {{ render_field(form.remember_me,check=True) }}
+        <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
 
-                        </div>
-                        <div class="col-sm-offset-3">
-                            <input class="btn btn-info" type="submit" value="用户登录"/>
+                        <form id="formID" action="" method="POST" class="form-horizontal" role="form">
 
-                        </div>
-                    </form>
+                            <div style="color: red;" class=" col-sm-offset-3" id="show_error">
+                            </div>
+
+                            <h2 class="col-sm-offset-3">用户登录</h2>
+
+                            <div class="form-group">
+                                <div class=" col-sm-offset-3">
+                                    <input type="text" id="username" name="username"
+                                           placeholder= {{ form.username.label }}>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class=" col-sm-offset-3">
+                                    <input type="password" id="password" name="password"
+                                           placeholder= {{ form.password.label }}>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group ">
+                                <label class="radio-inline col-sm-offset-3">
+                                    <input checked type="radio" name="user_type" id="student" value="student"> 学生
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="user_type" id="teacher" value="teacher"> 老师
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="user_type" id="admin" value="admin"> 管理员
+                                </label>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="checkbox col-sm-offset-3">
+                                    <label>
+                                        <input checked type="checkbox" id="remember_me" name="remember_me" value="y">
+                                        记住我
+                                    </label>
+                                    <label>
+                                        <button type="submit" class="btn btn-primary">登录</button>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
 {% endblock %}
 
 
+
+{#            $().ready(function () {#}
+{#                var validator = $("#signupForm").validate({#}
+{#                    submitHandler: function (form) {#}
+{#                        alert("submitted");#}
+{#                        form.submit();#}
+{#                    }#}
+{#                });#}
+{#                $("#reset").click(function () {#}
+{#                    validator.resetForm();#}
+{#                });#}
+{##}
+{#            });#}
+
+
+{#            	var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");#}
+{#var topicInputs = topics.find("input").attr("disabled", !inital);#}
+{#            highlight: function(element, errorClass) {#}
+{#				$(element).addClass(errorClass).parent().prev().children("select").addClass(errorClass);#}
+{#			}#}
+
+{#            #}
+{#            showErrors: function(map, list) {#}
+{#		// there's probably a way to simplify this#}
+{#		var focussed = document.activeElement;#}
+{#		if (focussed && $(focussed).is("input, textarea")) {#}
+{#			$(this.currentForm).tooltip("close", {#}
+{#				currentTarget: focussed#}
+{#			}, true)#}
+{#		}#}
+{#		this.currentElements.removeAttr("title").removeClass("ui-state-highlight");#}
+{#		$.each(list, function(index, error) {#}
+{#			$(error.element).attr("title", error.message).addClass("ui-state-highlight");#}
+{#		});#}
+{#		if (focussed && $(focussed).is("input, textarea")) {#}
+{#			$(this.currentForm).tooltip("open", {#}
+{#				target: focussed#}
+{#			});#}
+{#		}#}
+{#	}#}
+
+
+{##}
+{#            $(function() {#}
+{#		// highlight#}
+{#		var elements = $("input[type!='submit'], textarea, select");#}
+{#		elements.focus(function() {#}
+{#			$(this).parents('li').addClass('highlight');#}
+{#		});#}
+{#		elements.blur(function() {#}
+{#			$(this).parents('li').removeClass('highlight');#}
+{#		});#}
+{##}
+{#		$("#forgotpassword").click(function() {#}
+{#			$("#password").removeClass("required");#}
+{#			$("#login").submit();#}
+{#			$("#password").addClass("required");#}
+{#			return false;#}
+{#		});#}
+{##}
+{#		$("#login").validate()#}
+{#	});#}
+{#    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">#}
+{#    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/blog.css') }}">#}

@@ -23,10 +23,10 @@ class Config(object):
     }
 
     # 调试模式
-    DEBUG = False
+    DEBUG = True
 
     # 测试模式
-    TESTING = False
+    TESTING = True
 
     SECRET_KEY = 'you-will-never-guess'
     PER_PAGE = 10
