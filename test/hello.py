@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.migrate import Migrate, MigrateCommand
 from flask.ext.script import Manager
@@ -33,6 +33,9 @@ def run():
     app.debug = True
     app.run()
 
+@app.route('/',methods=['POST','GET'])
+def hello():
+	return render_template("test.html")
 
 if __name__ == '__main__':
     manager.run()

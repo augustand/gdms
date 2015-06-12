@@ -4,6 +4,9 @@
 
 
 # 基础表单类,具体验证表单继承它
+from flask import session
+
+
 class BaseForm(object):
 	def __init__(self,form=None):
 
@@ -24,15 +27,6 @@ class BaseForm(object):
 					field.data = self.form[field_name]
 					self.fields.append((field_name,field.validate))
 
-		# 将表单中的name映射为一个field类
-		# for field_name,data in self.form.items():
-		# try:
-		# 		field = self.__getattribute__(field_name)
-		# 		field.data = data
-		# 		self.fields.append((field_name,field.validate))
-		# 	except Exception,e:
-		# 		print e
-
 		# 验证自定义的以validate_开头的方法
 		for validate_method in dir(self):
 			if validate_method.startswith('validate_'):
@@ -48,7 +42,6 @@ class BaseForm(object):
 				print field_name,status
 				return False
 		return status
-
 
 # 字段类,主要提供字段的各种验证和约束
 class Field(object):

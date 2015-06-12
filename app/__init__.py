@@ -2,7 +2,7 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from gdms import config
-
+#from flask.ext.admin import Admin
 
 app = Flask(__name__)
 
@@ -15,6 +15,8 @@ config.init_app(app)
 ctx = app.app_context()
 ctx.push()
 # <==
+
+#admin = Admin(app)
 
 # 初始化数据库配置
 db = SQLAlchemy(app)

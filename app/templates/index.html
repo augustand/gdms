@@ -10,7 +10,7 @@
 
             $('#myTab a').click(function (e) {
                 console.log(e)
-                e.preventDefault();//阻止a链接的跳转行为
+                {#                e.preventDefault();//阻止a链接的跳转行为#}
                 $(this).tab('show');//显示当前选中的链接及关联的content
             });
 
@@ -32,7 +32,6 @@
                         error.appendTo(element.parent());
                 }
             })
-
 
             $("#formID").validate({
 
@@ -87,61 +86,7 @@
 {% block navbar %}
 
 
-    {#    <nav class="navbar navbar-default" role="navigation">#}
-    {#        <div class="navbar-header">#}
-    {#            <a class="navbar-brand" href="#">W3Cschool</a>#}
-    {#        </div>#}
-    {#        <div>#}
-    <!--向左对齐-->
-    {#            <ul class="nav navbar-nav navbar-left">#}
-    {#                <li class="dropdown">#}
-    {#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
-    {#                        Java#}
-    {#                        <b class="caret"></b>#}
-    {#                    </a>#}
-    {#                    <ul class="dropdown-menu">#}
-    {#                        <li><a href="#">jmeter</a></li>#}
-    {#                        <li><a href="#">EJB</a></li>#}
-    {#                        <li><a href="#">Jasper Report</a></li>#}
-    {#                        <li class="divider"></li>#}
-    {#                        <li><a href="#">分离的链接</a></li>#}
-    {#                        <li class="divider"></li>#}
-    {#                        <li><a href="#">另一个分离的链接</a></li>#}
-    {#                    </ul>#}
-    {#                </li>#}
-    {#            </ul>#}
-    {#            <form class="navbar-form navbar-left" role="search">#}
-    {#                <button type="submit" class="btn btn-default">#}
-    {#                    向左对齐-提交按钮#}
-    {#                </button>#}
-    {#            </form>#}
-    {#            <p class="navbar-text navbar-left">向左对齐-文本</p>#}
-    <!--向右对齐-->
 
-    {#        <ul class="nav navbar-nav navbar-right">#}
-    {#            <li class="dropdown">#}
-    {#                <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
-    {#                    Java <b class="caret"></b>#}
-    {#                </a>#}
-    {#                <ul class="dropdown-menu">#}
-    {#                    <li><a href="#">jmeter</a></li>#}
-    {#                    <li><a href="#">EJB</a></li>#}
-    {#                    <li><a href="#">Jasper Report</a></li>#}
-    {#                    <li class="divider"></li>#}
-    {#                    <li><a href="#">分离的链接</a></li>#}
-    {#                    <li class="divider"></li>#}
-    {#                    <li><a href="#">另一个分离的链接</a></li>#}
-    {#                </ul>#}
-    {#            </li>#}
-    {#        </ul>#}
-    {#        <form class="navbar-form navbar-right" role="search">#}
-    {#            <button type="submit" class="btn btn-default">#}
-    {#                向右对齐-提交按钮#}
-    {#            </button>#}
-    {#        </form>#}
-    {#        <p class="navbar-text navbar-right">向右对齐-文本</p>#}
-    {#        </div>#}
-    {#    </nav>#}
 
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -158,18 +103,15 @@
                 <a class="navbar-brand" href="/ " title="毕设管理系统">毕设管理系统</a>
             </div>
 
-
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" id="myTab">
                     <li class="active"><a href="#index">首页</a></li>
                     <li><a href="#about">关于</a></li>
                     <li><a href="#contact">联系</a></li>
 
-                    {% if session.username %}
-                        <li><a href="#myinfo">我的信息</a></li>
+                    {% if session['username'] %}
+                        <li><a href="/user/info/">我的信息</a></li>\
                     {% endif %}
-
-
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -187,13 +129,15 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">登录</a>
-                    </li>
-                    <li>
-                        <a class="btn btn-primary btn-lg" href="/user/logout">退出</a>
-                    </li>
-
+                    {% if not session.username %}
+                        <li>
+                            <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">登录</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a class="btn btn-primary btn-lg" href="/user/logout">退出</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
 
@@ -206,12 +150,10 @@
 
     <br><br><br>
 
-
-
     <div class="tab-content">
         <div class="tab-pane active" id="index">
 
-            {% include "includes/index_doc.html" %}
+            {% include "includes/index/index_doc.html" %}
 
         </div>
         <div class="tab-pane" id="about">
@@ -227,140 +169,7 @@
         <div class="tab-pane" id="contact">
             message
         </div>
-
-        {% if session.username %}
-            {% include "includes/myinfo.html" %}
-        {% endif %}
-
-
-
-
-        <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-
-                        <form id="formID" action="" method="POST" class="form-horizontal" role="form">
-
-                            <div style="color: red;" class=" col-sm-offset-3" id="show_error">
-                            </div>
-
-                            <h2 class="col-sm-offset-3">用户登录</h2>
-
-                            <div class="form-group">
-                                <div class=" col-sm-offset-3">
-                                    <input type="text" id="username" name="username"
-                                           placeholder= {{ form.username.label }}>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class=" col-sm-offset-3">
-                                    <input type="password" id="password" name="password"
-                                           placeholder= {{ form.password.label }}>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group ">
-                                <label class="radio-inline col-sm-offset-3">
-                                    <input checked type="radio" name="user_type" id="student" value="student"> 学生
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="user_type" id="teacher" value="teacher"> 老师
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="user_type" id="admin" value="admin"> 管理员
-                                </label>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="checkbox col-sm-offset-3">
-                                    <label>
-                                        <input checked type="checkbox" id="remember_me" name="remember_me" value="y">
-                                        记住我
-                                    </label>
-                                    <label>
-                                        <button type="submit" class="btn btn-primary">登录</button>
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
+        {% include "includes/index/login.html" %}
     </div>
 
 {% endblock %}
-
-
-
-{#            $().ready(function () {#}
-{#                var validator = $("#signupForm").validate({#}
-{#                    submitHandler: function (form) {#}
-{#                        alert("submitted");#}
-{#                        form.submit();#}
-{#                    }#}
-{#                });#}
-{#                $("#reset").click(function () {#}
-{#                    validator.resetForm();#}
-{#                });#}
-{##}
-{#            });#}
-
-
-{#            	var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");#}
-{#var topicInputs = topics.find("input").attr("disabled", !inital);#}
-{#            highlight: function(element, errorClass) {#}
-{#				$(element).addClass(errorClass).parent().prev().children("select").addClass(errorClass);#}
-{#			}#}
-
-{#            #}
-{#            showErrors: function(map, list) {#}
-{#		// there's probably a way to simplify this#}
-{#		var focussed = document.activeElement;#}
-{#		if (focussed && $(focussed).is("input, textarea")) {#}
-{#			$(this.currentForm).tooltip("close", {#}
-{#				currentTarget: focussed#}
-{#			}, true)#}
-{#		}#}
-{#		this.currentElements.removeAttr("title").removeClass("ui-state-highlight");#}
-{#		$.each(list, function(index, error) {#}
-{#			$(error.element).attr("title", error.message).addClass("ui-state-highlight");#}
-{#		});#}
-{#		if (focussed && $(focussed).is("input, textarea")) {#}
-{#			$(this.currentForm).tooltip("open", {#}
-{#				target: focussed#}
-{#			});#}
-{#		}#}
-{#	}#}
-
-
-{##}
-{#            $(function() {#}
-{#		// highlight#}
-{#		var elements = $("input[type!='submit'], textarea, select");#}
-{#		elements.focus(function() {#}
-{#			$(this).parents('li').addClass('highlight');#}
-{#		});#}
-{#		elements.blur(function() {#}
-{#			$(this).parents('li').removeClass('highlight');#}
-{#		});#}
-{##}
-{#		$("#forgotpassword").click(function() {#}
-{#			$("#password").removeClass("required");#}
-{#			$("#login").submit();#}
-{#			$("#password").addClass("required");#}
-{#			return false;#}
-{#		});#}
-{##}
-{#		$("#login").validate()#}
-{#	});#}
-{#    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">#}
-{#    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/blog.css') }}">#}

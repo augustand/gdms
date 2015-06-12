@@ -5,12 +5,11 @@ from .user import user
 from ..forms import LoginForm
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/",methods=['GET'])
 def index():
-    form = LoginForm()
-    return render_template("index.html", form=form)
+	return render_template("index.html")
 
 
-app.register_blueprint(user, url_prefix='/user')
+app.register_blueprint(user,url_prefix='/user')
 
 

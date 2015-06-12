@@ -1,0 +1,69 @@
+{% extends "common/base.html" %}
+{% block myjs %}
+    <script>
+        $(function () {
+            $('#myTab a:first').tab('show');//初始化显示哪个tab
+            $('#myTab a').click(function (e) {
+                {#                e.preventDefault();//阻止a链接的跳转行为#}
+                $(this).tab('show');//显示当前选中的链接及关联的content
+            });
+        });
+
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul id="myTab" class="nav nav-pills nav-stacked">
+                    <li><a href="#index1">首页</a></li>
+                    <li>
+                        <a href="#systemSetting" data-toggle="collapse">系统管理</a>
+                        <ul id="systemSetting" class="nav nav-list collapse secondmenu">
+                            <li><a href="#">用户管理</a></li>
+                            <li><a href="#">菜单管理</a></li>
+                            <li><a href="#">角色管理</a></li>
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">日志查看</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#user_info">用户信息</a></li>
+
+                    <li><a href="#changepass">修改密码</a></li>
+
+                    <li><a href="#gd">毕业设计</a></li>
+
+                    <li><a href="#upload">上传文件</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-10">
+                <div class="tab-content">
+
+                    <div class="tab-pane" id="index1">
+                        {% include "includes/user/info/index.html" %}
+                    </div>
+
+                    <div class="tab-pane" id="user_info">
+                        {% include "includes/user/info/stu_info.html" %}
+                    </div>
+
+                    <div class="tab-pane" id="changepass">
+                        {% include "includes/user/info/change_pass.html" %}
+                    </div>
+
+                    <div class="tab-pane" id="gd">
+                        {% include "includes/user/info/gd.html" %}
+                    </div>
+
+                    <div class="tab-pane" id="upload">
+                        {% include "includes/user/info/upload.html" %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

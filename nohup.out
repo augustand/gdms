@@ -1,0 +1,10 @@
+
+(process:14248): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+
+(firefox:14248): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::sm-connect after class was initialised
+
+(firefox:14248): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::show-crash-dialog after class was initialised
+
+(firefox:14248): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::display after class was initialised
+
+(firefox:14248): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::default-icon after class was initialised

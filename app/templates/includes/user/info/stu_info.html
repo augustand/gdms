@@ -1,0 +1,41 @@
+<div class="container">
+    <form role="form" action="/user/edit" method="POST" class="form-horizontal">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="username">姓名</label>
+                    <input type="text" class="form-control" value={{ user.student_name }} name='student_name' id="student_name"
+                           placeholder="请输入你的姓名:">
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">性别</label>
+                    <input type="text" class="form-control" value={{ user.sex }} name='sex' id="sex">
+                </div>
+
+                <div class="form-group">
+                    <label for="schook_id">学号</label>
+                    <input type="text" disabled class="form-control" value={{ user.username }} id="school_id">
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">年级</label>
+                    <input type="text" class="form-control" value={{ user.grade }} name='grade' id="grade">
+                </div>
+
+                <div class="form-group">
+                    <label for="mark">分数</label>
+                    <input type="text" disabled class="form-control" value={{ user.mark }} id="mark">
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">评语</label>
+                    <input type="text" disabled class="form-control" value={{ user.comment }} id="comment">
+                </div>
+
+                <button type="submit" class="btn btn-default">保存</button>
+            </div>
+        </div>
+    </form>
+
+</div>

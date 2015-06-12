@@ -6,7 +6,7 @@ venv/*
 *.egg-info
 _mailinglist
 .idea/*
-
+activate
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

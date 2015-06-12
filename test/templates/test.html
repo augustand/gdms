@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jjj</title>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-theme.min.css" rel="stylesheet">
+    <link href="screen.css" rel="stylesheet">
+
+</head>
+<body>
+
+<script>
+    $(function () {
+
+        $('#myTab a:first').tab('show');//初始化显示哪个tab
+        $('#myTab a').click(function (e) {
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        });
+    });
+</script>
+
+<div class="container ">
+    <div class=" navbar navbar-duomi navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" id="logo">配置管理系统（流量包月） </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <ul id="myTab" class="nav nav-stacked">
+                <li class="active">
+                    <a href="#">
+
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+
+                        系统管理 </span>
+                    </a>
+                    <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                        <li><a href="#">用户管理</a></li>
+                        <li><a href="#">菜单管理</a></li>
+                        <li><a href="#">角色管理</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="#">日志查看</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#index4">
+                        物料管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#index3">
+                        分发配置 <span class="label label-warning pull-right">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#index2">
+                        图表统计 </a>
+                </li>
+                <li>
+                    <a href="#index1">
+                        关于系统 </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="col-md-10">
+            <div class="tab-content">
+                <div class="tab-pane" id="index1">
+                    <p class="lead">
+                        1
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+
+
+                    <input type="number" value="1">
+                    <input type="week" value="1">
+                    <input type="date" value="1">
+                    <input type="datetime" value="1">
+
+                    <input type="email" value="1">
+                    <input type="range" value="1">
+                    <input type="search" value="1">
+                    <input type="color" value="1">
+
+                    <input type="text" list="mydata" placeholder="热门电影排行"/>
+                    <datalist id="mydata">
+                        <option label="Top1" value="让子弹飞">
+                        <option label="Top2" value="非诚勿扰2">
+                        <option label="Top3" value="大笑江湖">
+                        <option label="Top4" value="赵氏孤儿">
+                        <option label="Top5" value="初恋这件小事">
+                    </datalist>
+
+                    <ul contenteditable="true">
+
+                        <li>hello</li>
+                        <li>hello</li>
+                        <li>hello</li>
+                        <li>hello</li>
+                    </ul>
+
+                </div>
+                <div class="tab-pane" id="index2">
+                    <p class="lead">
+                        2
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+                <div class="tab-pane" id="index3">
+                    <p class="lead">
+                        3
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index4">
+                    <p class="lead">
+                        4
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index5">
+                    <p class="lead">
+                        5
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index6">
+                    <p class="lead">
+                        6
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index7">
+                    <p class="lead">
+                        7
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index8">
+                    <p class="lead">
+                        8
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index9">
+                    <p class="lead">
+                        9
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="index10">
+                    <p class="lead">
+                        本系统旨在开发一个学生毕业设计管理平台，它将实现学生在网上能够选择老师发布的毕业设计题目，
+                        并能够查看自己的成绩，老师对自己的评语以及在学校的排名。老师可以发布毕业设计题目，
+                        对学生的毕业设计进行打分评语以及对向学生发布通知，管理员可以看到学生所有的毕设论文和全校学生的成绩排名，
+                        并以美丽的图表方式展现出来，并把多年学生成绩作对比。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

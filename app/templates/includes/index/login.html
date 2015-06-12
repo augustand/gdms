@@ -1,0 +1,58 @@
+<div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <form id="formID" action="" method="POST" class="form-horizontal" role="form">
+
+                    <div style="color: red;" class=" col-sm-offset-3" id="show_error">
+                    </div>
+
+                    <h2 class="col-sm-offset-3">用户登录</h2>
+
+                    <div class="form-group">
+                        <div class=" col-sm-offset-3">
+                            <input type="text" id="username" name="username"
+                                   placeholder="请输入用户名:">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class=" col-sm-offset-3">
+                            <input type="password" id="password" name="password"
+                                   placeholder="请输入密码:">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <label class="radio-inline col-sm-offset-3">
+                            <input checked type="radio" name="user_type" id="student" value="student"> 学生
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="user_type" id="teacher" value="teacher"> 老师
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="user_type" id="admin" value="admin"> 管理员
+                        </label>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="checkbox col-sm-offset-3">
+                            <label>
+                                <input checked type="checkbox" id="remember_me" name="remember_me" value="y">
+                                记住我
+                            </label>
+                            <label>
+                                <button type="submit" class="btn btn-primary">登录</button>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
